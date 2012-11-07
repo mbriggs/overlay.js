@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Overlay Demo</title>
+
+    <style type="text/css">
+      #demo{
+        margin: auto;
+        margin-top: 50px;
+        width: 75%;
+        height: 200px;
+        line-height: 200px;
+        vertical-align: middle;
+        text-align: center;
+        font-size: 60px;
+        background-color: black;
+        font-family: Helvetica, sans-serif;
+        font-weight: bold;
+        color: white;
+      }
+
+      .buttons{
+        text-align: center;
+      }
+
+      button{
+        font-size: 25px;
+        padding: 25px 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="demo">Some Content</div>
+    <div class="buttons">
+      <button class="add">Overlay!</button>
+      <button class="remove">Remove Overlay!</button>
+    </div>
+    
+    <script type="text/javascript" src="lib/jquery.js"></script>
+    <script type="text/javascript" src="lib/spin.js"></script>
+    <script type="text/javascript" src="lib/lodash.js"></script>
+    <script type="text/javascript" src="overlay.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        var defaults = $.fn.overlay.defaults;
+        defaults.length = 20;
+        defaults.radius = 15;
+        defaults.lines = 15;
+
+        $(".add").click(function(){
+          $(this).parent().prev("div").overlay(true);
+        });
+      
+        $(".remove").click(function(){
+          $(this).parent().prev("div").overlay(false);
+        });
+      })
+    </script>
+  </body>
+</html>
